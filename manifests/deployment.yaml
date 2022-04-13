@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fluxapp-deployment
+  labels:
+    app: fluxapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fluxapp
+  template:
+    metadata:
+      labels:
+        app: fluxapp
+    spec:
+      containers:
+      - name: fluxapp
+        image: a1tan/fluxapp:latest
+        ports:
+        - containerPort: 8080
